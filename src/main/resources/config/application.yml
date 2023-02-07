@@ -1,0 +1,18 @@
+## 后端基本配置
+server:
+  port: 30600
+  servlet:
+    context-path: /joova-course
+
+## 数据库配置
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    password: gyf15946066858
+    url: jdbc:mysql://localhost:3306/joova_db
+    username: JoovaCore
+
+## mybatis配置
+mybatis:
+  type-aliases-package: com.dss.jcourse.pojo
+  mapper-locations: classpath:mappers/**/*.xml
