@@ -2,10 +2,13 @@
 server:
   port: 30600
   servlet:
-    context-path: /joova-course
+    context-path: /joova-user
 
 ## 数据库配置
 spring:
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
     password: gyf15946066858
@@ -14,5 +17,11 @@ spring:
 
 ## mybatis配置
 mybatis:
-  type-aliases-package: com.dss.jcourse.pojo
+  type-aliases-package: com.dss.juser.pojo
   mapper-locations: classpath:mappers/**/*.xml
+
+## knife4j配置
+springfox:
+  documentation:
+    swagger-ui:
+      enabled: true
