@@ -9,7 +9,7 @@ import lombok.Data;
  * @date 2023/2/3
  */
 @Data
-@ApiModel(description = "登陆后获取到的用户信息")
+@ApiModel("登陆后获取到的用户信息")
 public class UserInfoDO {
     @ApiModelProperty("用户名")
     private String name;

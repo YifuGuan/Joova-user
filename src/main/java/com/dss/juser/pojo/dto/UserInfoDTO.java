@@ -1,5 +1,6 @@
 package com.dss.juser.pojo.dto;
 
+import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
@@ -8,6 +9,7 @@ import lombok.Data;
  * @date 2023/2/3
  */
 @Data
+@ApiModel("返回用户实体")
 public class UserInfoDTO {
     @ApiModelProperty("用户名")
     private String name;

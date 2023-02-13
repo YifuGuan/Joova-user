@@ -6,14 +6,17 @@ import lombok.Data;
 
 /**
  * @author 刀氏春秋
- * @date 2023/2/7
+ * @date 2023/2/13
  */
 @Data
-@ApiModel("用户身份验证查询参数")
-public class LoginParam {
+@ApiModel("新用户数据插入参数")
+public class RegisterParam {
     @ApiModelProperty(value = "用户名")
     private String name;
 
-    @ApiModelProperty(value = "已输入密码")
+    @ApiModelProperty(value = "密码")
     private String password;
+
+    @ApiModelProperty(value = "头像")
+    private String icon;
 }

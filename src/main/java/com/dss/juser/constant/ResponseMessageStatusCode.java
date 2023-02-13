@@ -8,4 +8,5 @@ package com.dss.juser.constant;
 public class ResponseMessageStatusCode {
     public static final String SUCCESS = "00000：请求成功";
     public static final String LOGIN_FAIL = "10001：登录失败";
+    public static final String REGISTER_FAIL = "10002：注册失败";
 }

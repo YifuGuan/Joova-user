@@ -13,7 +13,7 @@
     </parent>
 
     <groupId>org.dss</groupId>
-    <artifactId>joova-common</artifactId>
+    <artifactId>joova-user</artifactId>
     <version>1.0-SNAPSHOT</version>
 
 
@@ -23,6 +23,7 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
+        <!-- nacos服务注册配置中心 -->
         <!-- junit启动器 -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -58,7 +59,7 @@
             <artifactId>slf4j-log4j12</artifactId>
             <version>2.0.6</version>
         </dependency>
-        <!-- pageHelper 分页工具 -->
+        <!-- pageHelper -->
         <dependency>
             <groupId>com.github.pagehelper</groupId>
             <artifactId>pagehelper-spring-boot-starter</artifactId>
