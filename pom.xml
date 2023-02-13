@@ -24,6 +24,11 @@
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
         <!-- nacos服务注册配置中心 -->
+        <dependency>
+            <groupId>com.alibaba.cloud</groupId>
+            <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
+            <version>2021.1</version>
+        </dependency>
         <!-- junit启动器 -->
         <dependency>
             <groupId>org.springframework.boot</groupId>

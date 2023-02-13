@@ -59,8 +59,8 @@ public class UserInfoServiceImpl implements UserInfoService {
         RegisterResultDTO result = new RegisterResultDTO();
         try {
             // 新用户信息校验
-            // 是否重名
-            if(registerMapper.countUserByName(registerInfo.getName()) == 1){
+            // 是否重名（计数某一用户名下的用户数，如果多于0，则
+            if(registerMapper.countUserByName(registerInfo.getName()) > 0){
                 result.setSuccess(false);
                 result.setResult("用户名重复！");
                 return result;
