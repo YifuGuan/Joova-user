@@ -11,6 +11,7 @@ import org.apache.ibatis.annotations.Mapper;
 public interface RegisterMapper {
     /**
      * 根据用户名查找用户
+     *
      * @param name 用户名
      * @return 具有该用户名的用户数
      */
@@ -18,7 +19,8 @@ public interface RegisterMapper {
 
     /**
      * 插入新用户
-     * @param registerParam 新用户数据插入参数，
+     *
+     * @param registerParam 新用户数据插入参数
      */
     void insertNewUser(RegisterParam registerParam);
 }

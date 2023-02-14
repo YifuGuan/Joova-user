@@ -6,6 +6,12 @@ server:
 
 ## 数据库配置（本地数据库）
 spring:
+  application:
+    name: joova-user
+  cloud:
+    discovery:
+      ##nacos 地址
+      server-addr: localhost:8848
   mvc:
     pathmatch:
       matching-strategy: ant_path_matcher
@@ -14,6 +20,13 @@ spring:
     password: gyf15946066858
     url: jdbc:mysql://localhost:3306/joova_db
     username: JoovaCore
+
+## nacos配置
+management:
+  endpoint:
+    web:
+      exposure:
+        include: '*'
 
 ## mybatis配置
 mybatis:

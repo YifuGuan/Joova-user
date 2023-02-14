@@ -60,14 +60,14 @@ public class UserInfoServiceImpl implements UserInfoService {
         try {
             // 新用户信息校验
             // 是否重名（计数某一用户名下的用户数，如果多于0，则
-            if(registerMapper.countUserByName(registerInfo.getName()) > 0){
+            if (registerMapper.countUserByName(registerInfo.getName()) > 0) {
                 result.setSuccess(false);
                 result.setResult("用户名重复！");
                 return result;
             } else {
                 registerMapper.insertNewUser(registerInfo);
             }
-        }catch (Exception e){
+        } catch (Exception e) {
             result.setSuccess(false);
             result.setResult(e.getMessage());
             log.warn(e.getMessage());

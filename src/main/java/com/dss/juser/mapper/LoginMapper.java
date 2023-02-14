@@ -12,6 +12,7 @@ import org.apache.ibatis.annotations.Mapper;
 public interface LoginMapper {
     /**
      * 依照用户名密码确认登录信息
+     *
      * @param loginParam 登录参数：用户名，密码
      * @return 返回用户信息DO对象
      */

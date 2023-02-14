@@ -7,6 +7,7 @@ import com.dss.juser.pojo.request.LoginRequest;
 import com.dss.juser.pojo.request.RegisterRequest;
 import com.dss.juser.pojo.response.CommonResponse;
 import com.dss.juser.service.UserInfoService;
+import com.dss.juser.util.ResponseWrapper;
 import com.github.xiaoymin.knife4j.annotations.ApiOperationSupport;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -29,45 +30,28 @@ public class UserRelatedController {
     @ApiOperation(value = "用户身份信息验证", notes = "用户身份信息验证")
     @ApiOperationSupport(order = 1)
     @PostMapping(value = "/test")
-    public CommonResponse<UserInfoDTO> loginToJoova(LoginRequest loginRequest){
+    public CommonResponse<UserInfoDTO> loginToJoova(LoginRequest loginRequest) {
         // 执行业务
         UserInfoDTO userReturned = userInfoService.confirmUserIdentity(loginRequest);
         CommonResponse<UserInfoDTO> response = new CommonResponse<>();
 
-        // 判断是否成功
-        if(userReturned != null){
-            // 登陆成功
-            response.setSuccess(true);
-            response.setMessage(ResponseMessageStatusCode.SUCCESS);
-            response.setDtoResponse(userReturned);
-        } else {
-            // 登陆失败
-            response.setSuccess(false);
-            response.setMessage(ResponseMessageStatusCode.LOGIN_FAIL);
-            response.setDtoResponse(null);
-        }
-        return response;
+        // 判断是否成功并包装response
+        ResponseWrapper<UserInfoDTO> wrapper
+                = new ResponseWrapper<>(ResponseMessageStatusCode.SUCCESS, ResponseMessageStatusCode.LOGIN_FAIL);
+        return wrapper.responseJudgeByNotNullDto(response, userReturned);
     }
 
     @ApiOperation(value = "用户注册", notes = "用户注册")
     @ApiOperationSupport(order = 1)
     @PostMapping(value = "/register")
-    public CommonResponse<RegisterResultDTO> registerToJoova(RegisterRequest registerRequest){
+    public CommonResponse<RegisterResultDTO> registerToJoova(RegisterRequest registerRequest) {
         // 执行业务
         RegisterResultDTO registerResult = userInfoService.registerAsNewUser(registerRequest);
         CommonResponse<RegisterResultDTO> response = new CommonResponse<>();
 
-        // 判断是否成功
-        if(registerResult.getSuccess().equals(Boolean.TRUE)){
-            // 注册成功
-            response.setSuccess(true);
-            response.setMessage(ResponseMessageStatusCode.SUCCESS);
-        } else {
-            // 注册失败
-            response.setSuccess(false);
-            response.setMessage(ResponseMessageStatusCode.REGISTER_FAIL);
-        }
-        response.setDtoResponse(registerResult);
-        return response;
+        // 判断是否成功并包装response
+        ResponseWrapper<RegisterResultDTO> wrapper
+                = new ResponseWrapper<>(ResponseMessageStatusCode.SUCCESS, ResponseMessageStatusCode.REGISTER_FAIL);
+        return wrapper.responseJudgeByCondition(response, registerResult, registerResult.getSuccess());
     }
 }

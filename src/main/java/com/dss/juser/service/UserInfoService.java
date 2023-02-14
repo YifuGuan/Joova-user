@@ -12,6 +12,7 @@ import com.dss.juser.pojo.request.RegisterRequest;
 public interface UserInfoService {
     /**
      * 用户身份信息验证
+     *
      * @param loginRequest 登录请求参数：用户名、密码
      * @return 查询到的用户实体
      */
@@ -19,6 +20,7 @@ public interface UserInfoService {
 
     /**
      * 注册新用户
+     *
      * @param registerRequest 注册请求参数：用户名、密码、头像
      * @return 注册结果实体
      */
