@@ -16,17 +16,7 @@ public class ResponseWrapper<T> {
      */
     private final Map<String, String> messages = new HashMap<>();
 
-    public ResponseWrapper() {
-        messages.put(ResponseMessageStatusCode.WRAPPER_SUCCESS_KEY, "成功状态码未指配");
-        messages.put(ResponseMessageStatusCode.WRAPPER_FAILURE_KEY, "失败状态码未指配");
-    }
-
     public ResponseWrapper(String success, String failure) {
-        messages.put(ResponseMessageStatusCode.WRAPPER_SUCCESS_KEY, success);
-        messages.put(ResponseMessageStatusCode.WRAPPER_FAILURE_KEY, failure);
-    }
-
-    public void setSuccessAndFailureMessages(String success, String failure) {
         messages.put(ResponseMessageStatusCode.WRAPPER_SUCCESS_KEY, success);
         messages.put(ResponseMessageStatusCode.WRAPPER_FAILURE_KEY, failure);
     }

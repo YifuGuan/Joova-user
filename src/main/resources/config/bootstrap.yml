@@ -1,0 +1,17 @@
+# 服务端口
+server:
+  port: 30600
+  servlet:
+    context-path: /joova-user
+
+# 服务名，nacos配置文件前缀
+spring:
+  application:
+    name: joova-user
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848
+      config:
+        server-addr: localhost:8848
+        file-extension: yaml

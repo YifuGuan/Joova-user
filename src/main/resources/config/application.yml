@@ -1,25 +1,7 @@
-## 后端基本配置
-server:
-  port: 30600
-  servlet:
-    context-path: /joova-user
-
-## 数据库配置（本地数据库）
+## 配置文件启用
 spring:
-  application:
-    name: joova-user
-  cloud:
-    discovery:
-      ##nacos 地址
-      server-addr: localhost:8848
-  mvc:
-    pathmatch:
-      matching-strategy: ant_path_matcher
-  datasource:
-    driver-class-name: com.mysql.cj.jdbc.Driver
-    password: gyf15946066858
-    url: jdbc:mysql://localhost:3306/joova_db
-    username: JoovaCore
+  profiles:
+    active: dev
 
 ## nacos配置
 management:
@@ -27,14 +9,3 @@ management:
     web:
       exposure:
         include: '*'
-
-## mybatis配置
-mybatis:
-  type-aliases-package: com.dss.juser.pojo
-  mapper-locations: classpath:mappers/**/*.xml
-
-## knife4j配置
-springfox:
-  documentation:
-    swagger-ui:
-      enabled: true

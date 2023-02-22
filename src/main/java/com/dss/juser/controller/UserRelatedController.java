@@ -42,7 +42,7 @@ public class UserRelatedController {
     }
 
     @ApiOperation(value = "用户注册", notes = "用户注册")
-    @ApiOperationSupport(order = 1)
+    @ApiOperationSupport(order = 2)
     @PostMapping(value = "/register")
     public CommonResponse<RegisterResultDTO> registerToJoova(RegisterRequest registerRequest) {
         // 执行业务
